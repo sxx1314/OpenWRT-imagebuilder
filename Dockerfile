@@ -43,6 +43,15 @@ RUN apt-get update && \
  wget \
  swig \
  net-tools
+ 
+ ##添加padavan部分依赖 部分软件和上述可能相重合
+
+RUN apt-get update && \
+ DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
+ unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot \
+ cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
+ pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
+
 
 RUN useradd -u 10000 openwrt 
 
