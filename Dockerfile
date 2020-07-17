@@ -42,7 +42,8 @@ RUN apt-get update && \
  gperf \
  wget \
  swig \
- net-tools
+ net-tools \
+ openssh-server
  
  ##添加padavan部分依赖 部分软件和上述可能相重合
 
