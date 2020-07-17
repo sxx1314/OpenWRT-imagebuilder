@@ -56,14 +56,14 @@ RUN apt-get update && \
  pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
 
 
-RUN useradd -u 10000 openwrt  \
-  usermod -s /bin/zsh openwrt \
-  usermod -d /home/openwrt openwrt \
-  mkdir -p /var/run/sshd \
-  /usr/sbin/sshd -D & \
-  chmod u+w /etc/sudoers \
-  echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers \  
-  chmod u-w /etc/sudoers
+RUN useradd -u 10000 openwrt
+RUN usermod -s /bin/zsh openwrt
+RUN usermod -d /home/openwrt openwrt
+RUN mkdir -p /var/run/sshd
+RUN /usr/sbin/sshd -D &
+RUN chmod u+w /etc/sudoers
+RUN echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers 
+RUN chmod u-w /etc/sudoers
   
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
