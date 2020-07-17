@@ -75,5 +75,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists
 #RUN chmod +x /start.sh
 #ENTRYPOINT [ "/start.sh" ]
 
-切换用户
+
 USER openwrt
