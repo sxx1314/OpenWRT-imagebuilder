@@ -70,8 +70,9 @@ RUN chmod u+w /etc/sudoers
 RUN echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers 
 RUN chmod u-w /etc/sudoers
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
-
 RUN apt-get clean && rm -rf /var/lib/apt/lists
 
-ENTRYPOINT [ "/etc/init.d/ssh start" ]
+COPY start.sh /start.sh
+ENTRYPOINT [ "/start.sh" ]
+
 USER openwrt
