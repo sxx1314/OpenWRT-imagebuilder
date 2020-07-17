@@ -72,9 +72,9 @@ RUN chmod u-w /etc/sudoers
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-ENTRYPOINT [ "/start.sh" ]
+#COPY start.sh /start.sh
+#RUN chmod +x /start.sh
+#ENTRYPOINT [ "/start.sh" ]
 
-#切换用户
-#USER openwrt
+切换用户
+USER openwrt
