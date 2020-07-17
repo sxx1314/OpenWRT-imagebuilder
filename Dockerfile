@@ -56,7 +56,11 @@ RUN apt-get update && \
  pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
 
 
-RUN useradd -u 10000 openwrt
+RUN groupadd -g 10000 openwrt && \
+  useradd -r -u 10000 -g openwrt openwrt
+  USER openwrt
+  ##useradd -u 10000 openwrt
+
 RUN usermod -s /bin/zsh openwrt
 RUN usermod -d /home/openwrt openwrt
 RUN mkdir -p /var/run/sshd
