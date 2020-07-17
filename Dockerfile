@@ -76,4 +76,5 @@ COPY start.sh /start.sh
 RUN chmod +x /start.sh
 ENTRYPOINT [ "/start.sh" ]
 
-USER openwrt
+#切换用户
+#USER openwrt
