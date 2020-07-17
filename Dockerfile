@@ -57,6 +57,10 @@ RUN apt-get update && \
 
 RUN useradd -u 10000 openwrt  \
   mkdir -p /var/run/sshd \
-  /usr/sbin/sshd -D & 
+  /usr/sbin/sshd -D & \
+  chmod u+w /etc/sudoers \
+  echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers \  
+  chmod u-w /etc/sudoers \
+  echo "OpenWRT-imagebuilder" >> /etc/hostname
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
