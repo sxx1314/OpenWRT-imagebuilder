@@ -58,7 +58,7 @@ RUN apt-get update && \
 
 RUN groupadd -g 10000 openwrt && \
   useradd -r -u 10000 -g openwrt openwrt
-  USER openwrt
+
   ##useradd -u 10000 openwrt
 
 RUN usermod -s /bin/zsh openwrt
@@ -71,3 +71,5 @@ RUN chmod u-w /etc/sudoers
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
+
+USER openwrt
