@@ -44,7 +44,8 @@ RUN apt-get update && \
  swig \
  net-tools \
  openssh-server \
- sudo
+ sudo \
+ zsh
  
  ##添加padavan部分依赖 部分软件和上述可能相重合
 
@@ -56,13 +57,13 @@ RUN apt-get update && \
 
 
 RUN useradd -u 10000 openwrt  \
-  usermod -s /bin/bash openwrt \
+  usermod -s /bin/zsh openwrt \
   usermod -d /home/openwrt openwrt \
   mkdir -p /var/run/sshd \
   /usr/sbin/sshd -D & \
   chmod u+w /etc/sudoers \
   echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers \  
-  chmod u-w /etc/sudoers 
+  chmod u-w /etc/sudoers \
   
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
