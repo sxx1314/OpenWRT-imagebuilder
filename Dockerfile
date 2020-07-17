@@ -66,7 +66,6 @@ RUN usermod -d /home/openwrt openwrt
 RUN echo "root:openwrt" | chpasswd
 RUN echo "openwrt:openwrt" | chpasswd
 RUN mkdir -p /var/run/sshd
-CMD ["/usr/sbin/sshd", "-D"] 
 RUN chmod u+w /etc/sudoers
 RUN echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers 
 RUN chmod u-w /etc/sudoers
@@ -74,4 +73,5 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/inst
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
 
+ENTRYPOINT [ "/etc/init.d/ssh start" ]
 USER openwrt
