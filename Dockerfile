@@ -63,7 +63,7 @@ RUN useradd -u 10000 openwrt  \
   /usr/sbin/sshd -D & \
   chmod u+w /etc/sudoers \
   echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers \  
-  chmod u-w /etc/sudoers \
+  chmod u-w /etc/sudoers
   
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
