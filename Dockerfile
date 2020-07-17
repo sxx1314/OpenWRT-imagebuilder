@@ -63,8 +63,10 @@ RUN groupadd -g 10000 openwrt && \
 
 RUN usermod -s /bin/zsh openwrt
 RUN usermod -d /home/openwrt openwrt
+RUN echo "root:openwrt" | chpasswd
+RUN echo "openwrt:openwrt" | chpasswd
 RUN mkdir -p /var/run/sshd
-RUN /usr/sbin/sshd -D &
+CMD ["/usr/sbin/sshd", "-D"] 
 RUN chmod u+w /etc/sudoers
 RUN echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers 
 RUN chmod u-w /etc/sudoers
