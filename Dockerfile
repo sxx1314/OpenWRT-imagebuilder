@@ -45,7 +45,8 @@ RUN apt-get update && \
  net-tools \
  openssh-server \
  sudo \
- zsh
+ zsh \
+ rsync
  
  ##添加padavan部分依赖 部分软件和上述可能相重合
 
