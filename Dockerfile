@@ -48,6 +48,32 @@ RUN apt-get update && \
  zsh \
  rsync
  
+ 
+ RUN apt-get install -qy \
+	git \
+	build-essential \
+	gawk \
+	pkg-config \
+	gettext \
+	automake \
+	autoconf \
+	autopoint \
+	libtool \
+	bison \
+	flex \
+	zlib1g-dev \
+	libgmp3-dev \
+	libmpfr-dev \
+	libmpc-dev \
+	texinfo \
+	mc \
+	libncurses5-dev \
+	nano \
+	vim \
+ autopoint \
+	gperf \
+	python-docutils
+ 
  ##添加padavan部分依赖 部分软件和上述可能相重合
 
 RUN apt-get update && \
