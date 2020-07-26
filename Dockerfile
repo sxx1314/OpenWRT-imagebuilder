@@ -72,7 +72,8 @@ RUN apt-get update && \
 	vim \
   	autopoint \
 	gperf \
-	python-docutils
+	python-docutils \
+	module-init-tools
  
  
  ##添加padavan部分依赖 部分软件和上述可能相重合
