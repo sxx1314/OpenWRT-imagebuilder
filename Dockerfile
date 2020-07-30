@@ -98,6 +98,8 @@ RUN chmod u+w /etc/sudoers
 RUN echo "openwrt ALL=(ALL:ALL) ALL" >> /etc/sudoers 
 RUN chmod u-w /etc/sudoers 
 RUN apt-get clean && rm -rf /var/lib/apt/lists
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' >/etc/timezone
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
