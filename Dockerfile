@@ -46,10 +46,10 @@ RUN apt-get update && \
  openssh-server \
  sudo \
  zsh \
- rsync
- 
- 
- RUN apt-get install -qy \
+ rsync 
+
+
+RUN apt-get install -qy \
 	git \
 	build-essential \
 	gawk \
@@ -70,7 +70,7 @@ RUN apt-get update && \
 	libncurses5-dev \
 	nano \
 	vim \
-        autopoint \
+  	autopoint \
 	gperf \
 	python-docutils \
 	module-init-tools
