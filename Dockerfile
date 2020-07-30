@@ -49,7 +49,8 @@ RUN apt-get update && \
  rsync 
 
 
-RUN apt-get install -qy \
+RUN apt-get update && \
+        apt-get install -y \
 	git \
 	build-essential \
 	gawk \
