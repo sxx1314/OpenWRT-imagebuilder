@@ -1,10 +1,9 @@
 FROM ubuntu:18.04
 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
 RUN apt-get update && \
  DEBIAN_FRONTEND=noninteractive apt-get install -y \
  build-essential \ 
- nodejs \
  asciidoc \
  binutils \
  bzip2 \
@@ -87,6 +86,11 @@ RUN apt-get update && \
  cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
  pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
 
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+RUN apt-get update && \
+ DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
+ nodejs
 
 RUN groupadd -g 10000 openwrt && \
   useradd -r -u 10000 -g openwrt openwrt
