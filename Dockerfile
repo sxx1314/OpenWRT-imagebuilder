@@ -1,8 +1,10 @@
 FROM ubuntu:18.04
 
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 RUN apt-get update && \
  DEBIAN_FRONTEND=noninteractive apt-get install -y \
  build-essential \ 
+ nodejs \
  asciidoc \
  binutils \
  bzip2 \
@@ -12,7 +14,8 @@ RUN apt-get update && \
  libncurses5-dev \
  libz-dev \
  patch \
- python3.5 \
+ python3.8 \
+ python3-pip \
  python2.7 \
  unzip \
  zlib1g-dev \
