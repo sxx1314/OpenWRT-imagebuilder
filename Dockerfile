@@ -90,7 +90,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 RUN apt-get update && \
  DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
- nodejs
+ nodejs language-pack-zh-hans
 
 RUN groupadd -g 10000 openwrt && \
   useradd -r -u 10000 -g openwrt openwrt
@@ -108,9 +108,9 @@ RUN chmod u-w /etc/sudoers
 RUN apt-get clean && rm -rf /var/lib/apt/lists
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
-ENV LANG zh_cn.UTF-8  
+ENV LANG zh_CN.UTF-8  
 ENV LANGUAGE en_US:en  
-ENV LC_ALL zh_cn.UTF-8
+ENV LC_ALL zh_CN.UTF-8
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
